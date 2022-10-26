@@ -1,0 +1,33 @@
+:root {
+    --color-light-gray: #f4f5f7;
+    --color-gray: #68778c;
+    --color-dark-gray: #242325;
+    --color-disabled: #AEB5C1;
+    --color-white: #fff;
+    --color-blue: #0165ff;
+    --color-green: #47df7c;
+}
+
+@mixin spanWithDot {
+    position: relative;
+    padding-right: .5rem;
+    font-weight: 500;
+    color: var(--color-gray);
+    font-size: 10px;
+  
+    &:first-of-type{
+        font-size: 1rem;
+        color: var(--color-dark-gray);
+    }
+  
+    &:not(:last-of-type)::after{
+        content: "";
+        width: 3px;
+        height: 3px;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background: var(--color-gray);
+    }
+}

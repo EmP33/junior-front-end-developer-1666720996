@@ -1,25 +1,37 @@
 // Styles
-import "./App.css";
+import "./App.scss";
 // Components
 import Menu from "./components/Menu/Menu";
 import Footer from "./components/Footer/Footer";
+import ContextCard from "./components/ContextCard/ContextCard";
 // Constants
 import { mockedTasks } from "./mockedData";
 // Icons
 import { IoIosCheckmark } from "react-icons/io";
 import { BiRightArrowAlt } from "react-icons/bi";
 import { TiLockClosedOutline } from "react-icons/ti";
+import { AiOutlineCompass } from "react-icons/ai";
+// Assets
+import avatar from "./assets/frame.png";
+import {
+  getMonthName,
+  addZeroToDate,
+  formatDisplayData,
+} from "./utils/date-formaters";
 
 function App() {
+  const displayedDate = formatDisplayData(
+    mockedTasks[0].contexts[0].created_at
+  );
   return (
-    <>
+    <main>
       <Menu />
-      <main>
+      <div className="container">
         <section className="tasks-section">
           <h3 className="tasks-section__heading">YOUR TASKS</h3>
           <ul className="tasks">
             {mockedTasks.map((task) => (
-              <li className={`tasks__task ${task.status}`}>
+              <li key={task.id} className={`tasks__task ${task.status}`}>
                 {task.status === "completed" ? (
                   <IoIosCheckmark />
                 ) : task.status === "active" ? (
@@ -32,9 +44,39 @@ function App() {
             ))}
           </ul>
         </section>
-      </main>
+        <section className="context-container">
+          <div className="context-container__heading">
+            <h3>
+              <AiOutlineCompass /> BUSINESS CONTEXT
+            </h3>
+          </div>
+          <div className="business-contexts">
+            {mockedTasks[0].contexts.map((context) => (
+              <ContextCard key={context.id} context={context} />
+            ))}
+          </div>
+          <div className="context-overview">
+            <h2>{mockedTasks[0].contexts[0].title}</h2>
+            <div className="context-overview__content">
+              <img src={avatar} alt="avatar" />
+              <div className="content-heading">
+                <span>{mockedTasks[0].contexts[0].author}</span>
+                <span>
+                  Today, {addZeroToDate(displayedDate.getDate())}th{" "}
+                  {getMonthName(displayedDate.getTime())}
+                </span>
+                <span>
+                  {addZeroToDate(displayedDate.getHours())}:
+                  {addZeroToDate(displayedDate.getMinutes())}
+                </span>
+              </div>
+              <p>{mockedTasks[0].contexts[0].content}</p>
+            </div>
+          </div>
+        </section>
+      </div>
       <Footer />
-    </>
+    </main>
   );
 }
 
