@@ -23,7 +23,7 @@
     padding-right: 1rem;
 }
 
-.footerMenu li::after {
+.footerMenu li:not(:last-of-type)::after {
     content:"";
     cursor: default;
     width: 5px;

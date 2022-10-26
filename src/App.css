@@ -30,13 +30,23 @@ main {
   padding: 1.5rem;
   font-size: 12px;
   display: grid;
-  row-gap: 1rem;
 }
 
 .tasks__task {
   display: flex;
   align-items: center;
   column-gap: .5rem;
+  padding: .5rem 0;
+  transition: all .25s ease;
+}
+
+.tasks__task:hover {
+  background: rgba(1, 101, 255, .1);  
+  cursor: pointer;
+}
+.tasks__task.blocked:hover {
+  background: #fff;  
+  cursor: default;
 }
 
 
@@ -46,23 +56,23 @@ main {
   font-size: 1rem;
   border-radius: 2px;
 }
-.tasks__task svg.completed {
+.tasks__task.completed svg {
   color: var(--color-green);
   background: rgba(71, 223, 124,.1);
 }
-.tasks__task svg.active {
+.tasks__task.active svg {
   color: var(--color-white);
   background: var(--color-blue);
 }
-.tasks__task svg.blocked {
+.tasks__task.blocked svg {
   color: var(--color-gray);
   background: rgba(104, 119, 140,.1);
 }
 
-.tasks__task span.active {
+.tasks__task.active span {
   font-weight: bold;
 }
-.tasks__task span.blocked {
+.tasks__task.blocked span {
   color: var(--color-disabled);
 }
 

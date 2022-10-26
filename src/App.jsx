@@ -19,15 +19,15 @@ function App() {
           <h3 className="tasks-section__heading">YOUR TASKS</h3>
           <ul className="tasks">
             {mockedTasks.map((task) => (
-              <li className="tasks__task">
+              <li className={`tasks__task ${task.status}`}>
                 {task.status === "completed" ? (
-                  <IoIosCheckmark className={task.status} />
+                  <IoIosCheckmark />
                 ) : task.status === "active" ? (
-                  <BiRightArrowAlt className={task.status} />
+                  <BiRightArrowAlt />
                 ) : (
-                  <TiLockClosedOutline className={task.status} />
+                  <TiLockClosedOutline />
                 )}
-                <span className={task.status}>{task.title}</span>
+                <span>{task.title}</span>
               </li>
             ))}
           </ul>
