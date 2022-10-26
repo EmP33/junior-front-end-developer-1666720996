@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Menu.module.css";
+import styles from "./Menu.module.scss";
 import avatar from "../../assets/Frame46.png";
 import Logo from "../../assets/logo";
 

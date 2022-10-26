@@ -3,7 +3,6 @@ body {
   font-family: 'Poppins', sans-serif;
   background-color: var(--color-light-gray);
   color: var(--color-dark-gray);
-  padding: 2rem 2rem 0 2rem;
 }
 
 * {
@@ -16,8 +15,4 @@ ul,ol {
   list-style-type: none;
 }
 
-@media only screen and (max-width:600px) {
-  body {
-    padding: 1rem 1rem 0 1rem;
-  }
-}
+
