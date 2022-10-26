@@ -1,38 +1,83 @@
-.App {
-  text-align: center;
+:root {
+  --color-light-gray: #d4d6da;
+  --color-gray: #68778c;
+  --color-dark-gray: #242325;
+  --color-disabled: #AEB5C1;
+  --color-white: #fff;
+  --color-blue: #0165ff;
+  --color-green: #47df7c;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+main {
   display: flex;
-  flex-direction: column;
+  min-height: 86.25vh;
+}
+
+.tasks-section {
+  background: var(--color-white);
+  border-radius: 12px;
+  width: 320px;
+}
+
+.tasks-section__heading {
+  font-size: 12px;
+  font-weight: 600;
+  border-bottom: 1px solid var(--color-light-gray); 
+  padding: 1.5rem;
+}
+
+.tasks {
+  padding: 1.5rem;
+  font-size: 12px;
+  display: grid;
+}
+
+.tasks__task {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  column-gap: .5rem;
+  padding: .5rem 0;
+  transition: all .25s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.tasks__task:hover {
+  background: rgba(1, 101, 255, .1);  
+  cursor: pointer;
+}
+.tasks__task.blocked:hover {
+  background: #fff;  
+  cursor: default;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+
+
+.tasks__task svg {
+  font-weight: bolder;
+  font-size: 1rem;
+  border-radius: 2px;
+}
+.tasks__task.completed svg {
+  color: var(--color-green);
+  background: rgba(71, 223, 124,.1);
+}
+.tasks__task.active svg {
+  color: var(--color-white);
+  background: var(--color-blue);
+}
+.tasks__task.blocked svg {
+  color: var(--color-gray);
+  background: rgba(104, 119, 140,.1);
+}
+
+.tasks__task.active span {
+  font-weight: bold;
+}
+.tasks__task.blocked span {
+  color: var(--color-disabled);
+}
+
+@media only screen and (max-width:1200px) {
+  .tasks-section {
+    width: 100%;
   }
 }
