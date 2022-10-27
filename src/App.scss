@@ -57,18 +57,28 @@ main {
     .tasks__task {
       display: flex;
       align-items: center;
-      column-gap: .5rem;
-      padding: .5rem 0;
       transition: all .25s ease;
 
       &:hover {
         background: rgba(1, 101, 255, .1);  
         cursor: pointer;
       }
+      
 
       &.blocked:hover {
         background: #fff;  
         cursor: default;
+      }
+
+      & a {
+        text-decoration: none;
+        color: var(--color-dark-gray);
+        display: flex;
+        align-items: center;
+        column-gap: .5rem;
+        padding: .5rem 0;
+        width: 100%;
+        height: 100%;
       }
 
       & svg {
@@ -92,7 +102,7 @@ main {
         background: rgba(104, 119, 140,.1);
       }
       
-      &.active span {
+      &.bold span {
         font-weight: bold;
       }
 
@@ -210,22 +220,3 @@ main {
     }
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
