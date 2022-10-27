@@ -11,6 +11,7 @@ export const mockedTasks = [
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere deleniti dolor dolores autem dicta quam ducimus voluptate hic aspernatur impedit, illo fugit nihil accusamus. Ea consectetur eius totam quod voluptas accusantium, sit odit fugit pariatur labore necessitatibus possimus id neque.",
         author: "Olga Nelson",
         created_at: 1644919500000,
+        status: "read",
       },
       {
         slug: "application-has-been-accepted",
@@ -19,6 +20,7 @@ export const mockedTasks = [
           "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat hic praesentium saepe ea dolorem labore dignissimos nihil ipsa, delectus soluta laborum atque laboriosam repellendus nesciunt, animi, id laudantium magni. Neque ea magnam eius? Totam dolorem, saepe deleniti hic quisquam dolor.",
         author: "Kirsten Aniston",
         created_at: 1633864860000,
+        status: "read",
       },
       {
         slug: "new-sprint-tasks-and-intro-information-2",
@@ -27,6 +29,7 @@ export const mockedTasks = [
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere deleniti dolor dolores autem dicta quam ducimus voluptate hic aspernatur impedit, illo fugit nihil accusamus. Ea consectetur eius totam quod voluptas accusantium, sit odit fugit pariatur labore necessitatibus possimus id neque.",
         author: "Olga Nelson",
         created_at: 1649085000000,
+        status: "read",
       },
     ],
   },
@@ -42,6 +45,7 @@ export const mockedTasks = [
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste deleniti velit atque architecto ad sequi ex odio iusto ea, iure molestias ipsum possimus porro perspiciatis quis molestiae. Dolores, odio accusantium. Omnis veniam earum animi magnam nemo possimus dolores alias pariatur.",
         author: "Kirsten Aniston",
         created_at: 1649085000000,
+        status: "read",
       },
       {
         slug: "application-has-been-accepted",
@@ -50,6 +54,7 @@ export const mockedTasks = [
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere deleniti dolor dolores autem dicta quam ducimus voluptate hic aspernatur impedit, illo fugit nihil accusamus. Ea consectetur eius totam quod voluptas accusantium, sit odit fugit pariatur labore necessitatibus possimus id neque.",
         author: "Kirsten Aniston",
         created_at: 1644919500000,
+        status: "read",
       },
       {
         slug: "new-sprint-tasks-and-intro-information-2",
@@ -58,6 +63,7 @@ export const mockedTasks = [
           "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat hic praesentium saepe ea dolorem labore dignissimos nihil ipsa, delectus soluta laborum atque laboriosam repellendus nesciunt, animi, id laudantium magni. Neque ea magnam eius? Totam dolorem, saepe deleniti hic quisquam dolor.",
         author: "Olga Nelson",
         created_at: 1633864860000,
+        status: "read",
       },
     ],
   },
@@ -73,6 +79,7 @@ export const mockedTasks = [
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere deleniti dolor dolores autem dicta quam ducimus voluptate hic aspernatur impedit, illo fugit nihil accusamus. Ea consectetur eius totam quod voluptas accusantium, sit odit fugit pariatur labore necessitatibus possimus id neque.",
         author: "Olga Nelson",
         created_at: 1644919500000,
+        status: "read",
       },
       {
         slug: "application-has-been-accepted",
@@ -81,6 +88,7 @@ export const mockedTasks = [
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere deleniti dolor dolores autem dicta quam ducimus voluptate hic aspernatur impedit, illo fugit nihil accusamus. Ea consectetur eius totam quod voluptas accusantium, sit odit fugit pariatur labore necessitatibus possimus id neque.",
         author: "Olga Nelson",
         created_at: 1633864860000,
+        status: "read",
       },
       {
         slug: "new-sprint-tasks-and-intro-information-2",
@@ -89,6 +97,7 @@ export const mockedTasks = [
           "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat hic praesentium saepe ea dolorem labore dignissimos nihil ipsa, delectus soluta laborum atque laboriosam repellendus nesciunt, animi, id laudantium magni. Neque ea magnam eius? Totam dolorem, saepe deleniti hic quisquam dolor.",
         author: "Kirsten Aniston",
         created_at: 1649085000000,
+        status: "read",
       },
     ],
   },
@@ -104,6 +113,7 @@ export const mockedTasks = [
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste deleniti velit atque architecto ad sequi ex odio iusto ea, iure molestias ipsum possimus porro perspiciatis quis molestiae. Dolores, odio accusantium. Omnis veniam earum animi magnam nemo possimus dolores alias pariatur.",
         author: "Kirsten Aniston",
         created_at: 1633864860000,
+        status: "unread",
       },
       {
         slug: "application-has-been-accepted",
@@ -112,6 +122,7 @@ export const mockedTasks = [
           "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat hic praesentium saepe ea dolorem labore dignissimos nihil ipsa, delectus soluta laborum atque laboriosam repellendus nesciunt, animi, id laudantium magni. Neque ea magnam eius? Totam dolorem, saepe deleniti hic quisquam dolor.",
         author: "Olga Nelson",
         created_at: 1649085000000,
+        status: "unread",
       },
       {
         slug: "new-sprint-tasks-and-intro-information-2",
@@ -120,6 +131,7 @@ export const mockedTasks = [
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere deleniti dolor dolores autem dicta quam ducimus voluptate hic aspernatur impedit, illo fugit nihil accusamus. Ea consectetur eius totam quod voluptas accusantium, sit odit fugit pariatur labore necessitatibus possimus id neque.",
         author: "Olga Nelson",
         created_at: 1644919500000,
+        status: "unread",
       },
     ],
   },
@@ -135,6 +147,7 @@ export const mockedTasks = [
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere deleniti dolor dolores autem dicta quam ducimus voluptate hic aspernatur impedit, illo fugit nihil accusamus. Ea consectetur eius totam quod voluptas accusantium, sit odit fugit pariatur labore necessitatibus possimus id neque.",
         author: "Kirsten Aniston",
         created_at: 1644919500000,
+        status: "unread",
       },
       {
         slug: "application-has-been-accepted",
@@ -143,6 +156,7 @@ export const mockedTasks = [
           "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat hic praesentium saepe ea dolorem labore dignissimos nihil ipsa, delectus soluta laborum atque laboriosam repellendus nesciunt, animi, id laudantium magni. Neque ea magnam eius? Totam dolorem, saepe deleniti hic quisquam dolor.",
         author: "Kirsten Aniston",
         created_at: 1633864860000,
+        status: "unread",
       },
       {
         slug: "new-sprint-tasks-and-intro-information-2",
@@ -151,6 +165,7 @@ export const mockedTasks = [
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere deleniti dolor dolores autem dicta quam ducimus voluptate hic aspernatur impedit, illo fugit nihil accusamus. Ea consectetur eius totam quod voluptas accusantium, sit odit fugit pariatur labore necessitatibus possimus id neque.",
         author: "Kirsten Aniston",
         created_at: 1649085000000,
+        status: "unread",
       },
     ],
   },

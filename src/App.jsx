@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 // Styles
 import "./App.scss";
 // Components
@@ -20,8 +19,15 @@ function App() {
       <main>
         <Menu />
         <Routes>
-          <Route path="/" element={<Navigate to={`/${activeTask.slug}`} />} />
-          <Route path="/:slug" element={<HomePage />} />
+          <Route
+            path="/"
+            element={
+              <Navigate
+                to={`/${activeTask.slug}/tasks/${activeTask.contexts[0].slug}`}
+              />
+            }
+          />
+          <Route path="/:slug/tasks/:contextSlug" element={<HomePage />} />
         </Routes>
         <Footer />
       </main>

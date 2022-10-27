@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 // Components
 import ContextCard from "../components/ContextCard/ContextCard";
 // Constants
@@ -16,13 +16,14 @@ import {
   getMonthName,
   addZeroToDate,
   formatDisplayData,
-} from "../utils/date-formaters";
-import { Link } from "react-router-dom";
+} from "../utils/date-formatters";
+import { changeContextStatus } from "../utils/api";
 
 const HomePage = () => {
+  const { slug, contextSlug } = useParams();
   const [displayedDate, setDisplayedDate] = useState("");
-  const { slug } = useParams();
   const [currentTask, setCurrentTask] = useState(undefined);
+  const [currectContext, setCurrentContext] = useState(undefined);
 
   useEffect(() => {
     /* Setting the currentTask state to the task with the slug that matches the slug in the url. */
@@ -36,6 +37,31 @@ const HomePage = () => {
     );
   }, [slug]);
 
+  useEffect(() => {
+    if (currentTask) {
+      /* Setting the state of currentContext to the context with the slug that matches the slug in the
+      url. */
+      setCurrentContext(
+        currentTask.contexts.find((context) => context.slug === contextSlug)
+      );
+      /* Setting the state of displayedDate to the date of the context with the slug that matches the
+      slug in the url. */
+      setDisplayedDate(
+        formatDisplayData(
+          mockedTasks
+            .find((task) => task.slug === slug)
+            .contexts.find((context) => context.slug === contextSlug).created_at
+        )
+      );
+      /* Calling the changeContextStatus function from the api.js file. */
+      changeContextStatus(
+        currentTask.slug,
+        currentTask.contexts.find((context) => context.slug === contextSlug)
+          .slug
+      );
+    }
+  }, [contextSlug, currentTask, slug]);
+
   return (
     <div className="container">
       <section className="tasks-section">
@@ -48,7 +74,13 @@ const HomePage = () => {
                 slug === task.slug ? "bold" : ""
               }`}
             >
-              <Link to={task.status === "blocked" ? `#` : `/${task.slug}`}>
+              <Link
+                to={
+                  task.status === "blocked"
+                    ? `#`
+                    : `/${task.slug}/tasks/${task.contexts[0].slug}`
+                }
+              >
                 {task.status === "completed" ? (
                   <IoIosCheckmark />
                 ) : task.status === "active" ? (
@@ -75,11 +107,11 @@ const HomePage = () => {
             ))}
           </div>
           <div className="context-overview">
-            <h2>{currentTask?.contexts[0].title}</h2>
+            <h2>{currectContext?.title}</h2>
             <div className="context-overview__content">
               <img src={avatar} alt="avatar" />
               <div className="content-heading">
-                <span>{currentTask?.contexts[0].author}</span>
+                <span>{currectContext?.author}</span>
                 <span>
                   Today, {addZeroToDate(displayedDate.getDate())}th{" "}
                   {getMonthName(displayedDate.getTime())}
@@ -89,7 +121,7 @@ const HomePage = () => {
                   {addZeroToDate(displayedDate.getMinutes())}
                 </span>
               </div>
-              <p>{currentTask.contexts[0].content}</p>
+              <p>{currectContext?.content}</p>
             </div>
           </div>
         </section>
