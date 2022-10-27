@@ -17,7 +17,7 @@ function App() {
       <main>
         <Menu />
         <Routes>
-          <Route path="/" element={<Navigate to="/1" />} />
+          <Route path="/" element={<Navigate to="/0" />} />
           <Route path="/:id" element={<HomePage />} />
         </Routes>
         <Footer />
