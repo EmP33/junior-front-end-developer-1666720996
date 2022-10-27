@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 // Components
 import ContextCard from "../components/ContextCard/ContextCard";
@@ -20,12 +20,21 @@ import {
 import { Link } from "react-router-dom";
 
 const HomePage = () => {
-  const displayedDate = formatDisplayData(
-    mockedTasks[0].contexts[0].created_at
-  );
-  const { id } = useParams();
+  const [displayedDate, setDisplayedDate] = useState("");
+  const { slug } = useParams();
+  const [currentTask, setCurrentTask] = useState(undefined);
 
-  console.log(id);
+  useEffect(() => {
+    /* Setting the currentTask state to the task with the slug that matches the slug in the url. */
+    setCurrentTask(mockedTasks.find((task) => task.slug === slug));
+    /* Setting the state of displayedDate to the date of the first context of the task with the slug
+   that matches the slug in the url. */
+    setDisplayedDate(
+      formatDisplayData(
+        mockedTasks.find((task) => task.slug === slug).contexts[0].created_at
+      )
+    );
+  }, [slug]);
 
   return (
     <div className="container">
@@ -34,12 +43,12 @@ const HomePage = () => {
         <ul className="tasks">
           {mockedTasks.map((task) => (
             <li
-              key={task.id}
+              key={task.slug}
               className={`tasks__task ${task.status} ${
-                +id === task.id ? "bold" : ""
+                slug === task.slug ? "bold" : ""
               }`}
             >
-              <Link to={task.status === "blocked" ? `#` : `/${task.id}`}>
+              <Link to={task.status === "blocked" ? `#` : `/${task.slug}`}>
                 {task.status === "completed" ? (
                   <IoIosCheckmark />
                 ) : task.status === "active" ? (
@@ -53,36 +62,40 @@ const HomePage = () => {
           ))}
         </ul>
       </section>
-      <section className="context-container">
-        <div className="context-container__heading">
-          <h3>
-            <AiOutlineCompass /> BUSINESS CONTEXT
-          </h3>
-        </div>
-        <div className="business-contexts">
-          {mockedTasks[0].contexts.map((context) => (
-            <ContextCard key={context.id} context={context} />
-          ))}
-        </div>
-        <div className="context-overview">
-          <h2>{mockedTasks[0].contexts[0].title}</h2>
-          <div className="context-overview__content">
-            <img src={avatar} alt="avatar" />
-            <div className="content-heading">
-              <span>{mockedTasks[0].contexts[0].author}</span>
-              <span>
-                Today, {addZeroToDate(displayedDate.getDate())}th{" "}
-                {getMonthName(displayedDate.getTime())}
-              </span>
-              <span>
-                {addZeroToDate(displayedDate.getHours())}:
-                {addZeroToDate(displayedDate.getMinutes())}
-              </span>
-            </div>
-            <p>{mockedTasks[0].contexts[0].content}</p>
+      {currentTask ? (
+        <section className="context-container">
+          <div className="context-container__heading">
+            <h3>
+              <AiOutlineCompass /> BUSINESS CONTEXT
+            </h3>
           </div>
-        </div>
-      </section>
+          <div className="business-contexts">
+            {currentTask?.contexts.map((context) => (
+              <ContextCard key={context.slug} context={context} />
+            ))}
+          </div>
+          <div className="context-overview">
+            <h2>{currentTask?.contexts[0].title}</h2>
+            <div className="context-overview__content">
+              <img src={avatar} alt="avatar" />
+              <div className="content-heading">
+                <span>{currentTask?.contexts[0].author}</span>
+                <span>
+                  Today, {addZeroToDate(displayedDate.getDate())}th{" "}
+                  {getMonthName(displayedDate.getTime())}
+                </span>
+                <span>
+                  {addZeroToDate(displayedDate.getHours())}:
+                  {addZeroToDate(displayedDate.getMinutes())}
+                </span>
+              </div>
+              <p>{currentTask.contexts[0].content}</p>
+            </div>
+          </div>
+        </section>
+      ) : (
+        "Loading..."
+      )}
     </div>
   );
 };

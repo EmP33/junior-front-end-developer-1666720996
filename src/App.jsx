@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 // Styles
 import "./App.scss";
 // Components
@@ -10,15 +11,17 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
+import { mockedTasks } from "./mockedData";
 
 function App() {
+  const activeTask = mockedTasks.find((task) => task.status === "active");
   return (
     <Router>
       <main>
         <Menu />
         <Routes>
-          <Route path="/" element={<Navigate to="/0" />} />
-          <Route path="/:id" element={<HomePage />} />
+          <Route path="/" element={<Navigate to={`/${activeTask.slug}`} />} />
+          <Route path="/:slug" element={<HomePage />} />
         </Routes>
         <Footer />
       </main>
